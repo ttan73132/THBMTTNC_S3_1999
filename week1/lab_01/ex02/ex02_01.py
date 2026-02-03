@@ -1,0 +1,5 @@
+ten = input("nhap ten cua")
+tuoi = input("nhap tuoi cua ban")
+mssv = input("nhap mssv")
+lop = input("nhap lop")
+print("chào bạn", ten, "tuổi", tuoi, "mssv", mssv, "lớp", lop)
