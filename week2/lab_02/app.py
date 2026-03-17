@@ -21,15 +21,14 @@ def caesar_encrypt():
     key = int(request.form['inputKeyPlain'])
     caesar = CaesarCipher()
     encrypted_text = caesar.encrypt_text(text, key)
-    return f"text: {text}<br>/key: {key}<br>/encrypted text: {encrypted_text}"
-
+    return render_template ('caesar.html',plain_result=text,key_result=key,cipher_result=encrypted_text)
 @app.route("/caesar/decrypt", methods=['POST'])
 def caesar_decrypt():
     text = request.form['inputCipherText']
     key = int(request.form['inputKeyCipher'])
     caesar = CaesarCipher()
     decrypted_text = caesar.decrypt_text(text, key)
-    return f"text: {text}<br>/key: {key}<br>/decrypted text: {decrypted_text}"
+    return render_template ('caesar.html',iplain_result=text,ikey_result=key,icipher_result=decrypted_text)
 
 # PLAYFAIR 
 @app.route("/playfair")
@@ -50,7 +49,7 @@ def playfair_encrypt():
     playfair_cipher = PlayFairCipher()
     playfair_matrix = playfair_cipher.create_playfair_matrix(key)
     encrypted_text = playfair_cipher.playfair_encrypt(text, playfair_matrix)
-    return f"text: {text}<br>/key: {key}<br>/encrypted text: {encrypted_text}"
+    return render_template ('playfair.html',plain_result=text,key_result=key,cipher_result=encrypted_text)
 
 @app.route("/playfair/decrypt", methods=['POST'])
 def playfair_decrypt():
@@ -59,7 +58,7 @@ def playfair_decrypt():
     playfair_cipher = PlayFairCipher()
     playfair_matrix = playfair_cipher.create_playfair_matrix(key)
     decrypted_text = playfair_cipher.playfair_decrypt(text, playfair_matrix)
-    return f"text: {text}<br>/key: {key}<br>/decrypted text: {decrypted_text}"
+    return render_template ('playfair.html',iplain_result=text,ikey_result=key,icipher_result= decrypted_text)
 
 
 #  RAILFENCE 
@@ -73,7 +72,7 @@ def railfence_encrypt():
     key = int(request.form['inputKeyPlain'])
     railfence = RailFenceCipher()
     encrypted_text = railfence.rail_fence_encrypt(text, key)
-    return f"text: {text}<br>/key: {key}<br>/encrypted text: {encrypted_text}"
+    return render_template ('railfence.html',plain_result=text,key_result=key,cipher_result=encrypted_text)
 
 @app.route("/railfence/decrypt", methods=['POST'])
 def railfence_decrypt():
@@ -81,8 +80,7 @@ def railfence_decrypt():
     key = int(request.form['inputKeyCipher'])
     railfence = RailFenceCipher()
     decrypted_text = railfence.rail_fence_decrypt(text, key)
-    return f"text: {text}<br>/key: {key}<br>/decrypted text: {decrypted_text}"
-
+    return render_template ('railfence.html',iplain_result=text,ikey_result=key,icipher_result=decrypted_text)
 #  MAIN FUNCTION 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5050, debug=True)
