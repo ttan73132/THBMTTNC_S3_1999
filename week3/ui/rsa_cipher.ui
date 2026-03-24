@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string><b>RSA CIPHER</b></string>
+    <string>RSA CIPHER</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
