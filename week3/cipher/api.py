@@ -51,6 +51,7 @@ def sign():
 
     return jsonify({"signature": signature_hex})
 
+
 @app.route('/api/rsa/verify', methods=['POST'])
 def verify():
     data = request.json 
