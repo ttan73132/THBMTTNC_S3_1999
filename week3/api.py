@@ -3,7 +3,7 @@ from cipher.rsa import RSACipher
 from cipher.ecc import ECCCipher
 app = Flask(__name__)
 
-# RSA_CIPHER_ALGORITHM
+# RSA_CIPHER_ALGORITHM #################################
 rsa_cipher = RSACipher()
 
 @app.route('/api/rsa/generate_keys', methods=['GET'])
@@ -64,7 +64,7 @@ def verify():
 
     return jsonify({"is_verified": is_verified})
 
-####### ECC #########
+####### ECC #######################################################################
 
 ecc_cipher = ECCCipher()
 
